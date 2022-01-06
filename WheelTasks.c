@@ -57,10 +57,8 @@ RT_QUEUE  SensorsMeasurement_Queue;
 // Global variables communication and synchronization tasks by shared memory 
 //--------------------------------------------------------------------------
 static bool AbortExperiment_Flag;
-static bool StartExperiment_Flag;
 
 bool ExperimentIsAborted(void) { return AbortExperiment_Flag; }
-bool ExperimentIsStarted(void) { return StartExperiment_Flag; }
 
 // **************************************************************************
 // *
@@ -89,7 +87,7 @@ void AbortExperiment(void)
 
 void StartExperiment(void)
 {
-   StartExperiment_Flag = true;
+   rt_sem_v(&StartExperiment_Semaphore);
 }
 //----------------------------------------------------------
 
@@ -157,6 +155,7 @@ int main(int argc, char* argv[])
     // Semaphores creation                 
     // ------------------------------------
     rt_sem_create(&ExitApplication_Semaphore, "Exit", 0, S_FIFO);
+    rt_sem_create(&StartExperiment_Semaphore, "StartExperiment", 0, S_PULSE);
     // **** This space must be completed  if needed   ***** 
     
 
@@ -195,6 +194,7 @@ int main(int argc, char* argv[])
     //   **** This space must be completed  if needed   ***** 
 
     rt_sem_delete(&ExitApplication_Semaphore);
+    rt_sem_delete(&StartExperiment_Semaphore);
 
     //------------------------------------------------------------
     // Events destruction                                 
