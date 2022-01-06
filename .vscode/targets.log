@@ -1,0 +1,681 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.82
+# Built for x86_64-redhat-linux-gnu
+# Copyright (C) 2010  Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+make: xeno-config: Command not found
+ 
+
+# Make data base, printed on Thu Jan  6 09:27:06 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+DESKTOP_SESSION = gnome-classic
+# environment
+OPAM_SWITCH_PREFIX = /usr/local/opam/default
+# default
+.SHELLFLAGS := -c
+# environment
+OCAML_TOPLEVEL_PATH = /usr/local/opam/default/lib/toplevel
+# makefile (from `nbproject/Makefile-impl.mk', line 16)
+SUB_no = NO
+# environment
+XDG_SESSION_TYPE = x11
+# environment
+MODULEPATH = /usr/share/Modules/modulefiles:/etc/modulefiles
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+XAUTHORITY = /run/gdm/auth-for-c.grenier-KU8ci1/database
+# environment
+GDMSESSION = gnome-classic
+# environment
+XMODIFIERS = @im=ibus
+# makefile
+CURDIR := /home/master22/ems22/c.grenier/Downloads/StudentPackage/ReactionWheel
+# makefile
+SHELL = /bin/sh
+# environment
+DN = /usr/local/lsprepost4.6_centos7
+# environment
+GDM_LANG = C
+# environment
+VTE_VERSION = 5204
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `nbproject/Makefile-impl.mk', line 34)
+ALLCONFS = RealTarget VirtualTarget 
+# makefile (from `nbproject/Makefile-variables.mk', line 24)
+CND_PACKAGE_PATH_VirtualTarget = dist/VirtualTarget/GNU-Linux/package/reactionwheel.tar
+# environment
+LESSOPEN = ||/usr/bin/lesspipe.sh %s
+# makefile (from `nbproject/Makefile-variables.mk', line 20)
+CND_ARTIFACT_NAME_VirtualTarget = reactionwheel
+# makefile (from `nbproject/private/Makefile-variables.mk', line 1)
+MAKEFILE_LIST :=  Makefile nbproject/Makefile-impl.mk nbproject/Makefile-variables.mk nbproject/private/Makefile-variables.mk
+# automatic
+@F = $(notdir $@)
+# makefile (from `Makefile', line 49)
+CP = cp
+# environment
+VSCODE_NODE_CACHED_DATA_DIR = /home/master22/ems22/c.grenier/.config/Code/CachedData/ea3859d4ba2f3e577a159bc91e3074c5d85c0523
+# environment
+USERNAME = c.grenier
+# environment
+XDG_DATA_DIRS = /home/master22/ems22/c.grenier/.local/share/flatpak/exports/share/:/var/lib/flatpak/exports/share/:/usr/local/share/:/usr/share/
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:abstract=/tmp/dbus-id72Q8obTY,guid=ed11c23d24fe9ae89227eb7561d6a6da
+# environment
+LSTC_LICENSE_SERVER = iatchoumitcheva.isae.fr
+# makefile (from `nbproject/Makefile-impl.mk', line 22)
+CLEAN_SUBPROJECTS_NO = 
+# makefile (from `nbproject/Makefile-impl.mk', line 23)
+CLEAN_SUBPROJECTS = ${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
+# makefile (from `nbproject/Makefile-impl.mk', line 31)
+CONF = ${DEFAULTCONF}
+# makefile (from `nbproject/Makefile-impl.mk', line 21)
+CLEAN_SUBPROJECTS_ = .clean-subprojects
+# environment
+ANSYSLI_SERVERS = 2325@licensec7
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/234173/vscode-ipc-6cd7024b-e1ca-43f0-bbf6-ed6526788fc1.sock
+# environment
+HISTCONTROL = ignoredups
+# environment
+PATH = /home/master22/ems22/c.grenier/.local/bin:/home/master22/ems22/c.grenier/bin:/home/master22/ems22/c.grenier/.local/bin:/home/master22/ems22/c.grenier/bin:/usr/local/git-2.31.1/bin:/usr/local/TLAToolbox-1.7.1:/usr/local/lsprepost4.6_centos7:/usr/local/ls-dyna-r10.1.0/bin:/usr/local/opam/default/bin:/usr/local/ptII/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/FF-v2.3:/usr/local/sarsop/src:/opt/puppetlabs/bin:/usr/local/FF-v2.3
+# makefile (from `Makefile', line 50)
+CCADMIN = CCadmin
+# environment
+LM_LICENSE_FILE = 27000@licensec7:27000@license
+# makefile (from `nbproject/Makefile-variables.mk', line 8)
+CND_DISTDIR = dist
+# makefile (from `nbproject/Makefile-variables.mk', line 16)
+CND_PACKAGE_PATH_RealTarget = dist/RealTarget/GNU-Linux/package/reactionwheel.tar
+# environment
+ANSYSLMD_LICENSE_FILE = 1055@licensec7
+# makefile (from `nbproject/Makefile-variables.mk', line 6)
+CND_BASEDIR = `pwd`
+# environment
+QT_GRAPHICSSYSTEM_CHECKED = 1
+# makefile (from `nbproject/Makefile-variables.mk', line 12)
+CND_ARTIFACT_NAME_RealTarget = reactionwheel
+# environment
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/23514,unix/unix:/tmp/.ICE-unix/23514
+# environment
+XDG_RUNTIME_DIR = /run/user/234173
+# environment
+BREAKPAD_DUMP_LOCATION = /home/master22/ems22/c.grenier/.config/Code/exthost Crash Reports
+# environment
+XDG_MENU_PREFIX = gnome-
+# makefile (from `nbproject/Makefile-variables.mk', line 19)
+CND_ARTIFACT_DIR_VirtualTarget = dist/VirtualTarget/GNU-Linux
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver check-symlink
+# environment
+LS_COLORS = rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:
+# environment
+XDG_SESSION_DESKTOP = gnome-classic
+# environment
+SSH_AUTH_SOCK = /run/user/234173/keyring/ssh
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# makefile (from `nbproject/Makefile-impl.mk', line 30)
+DEFAULTCONF = RealTarget
+# makefile (from `nbproject/Makefile-variables.mk', line 23)
+CND_PACKAGE_NAME_VirtualTarget = reactionwheel.tar
+# makefile (from `nbproject/Makefile-variables.mk', line 18)
+CND_PLATFORM_VirtualTarget = GNU-Linux
+# environment
+IMSETTINGS_INTEGRATE_DESKTOP = yes
+# environment
+PWD = /home/master22/ems22/c.grenier/Downloads/StudentPackage/ReactionWheel
+# makefile (from `nbproject/Makefile-impl.mk', line 19)
+BUILD_SUBPROJECTS_NO = 
+# makefile (from `nbproject/Makefile-impl.mk', line 20)
+BUILD_SUBPROJECTS = ${BUILD_SUBPROJECTS_${SUBPROJECTS}}
+# makefile (from `nbproject/Makefile-impl.mk', line 18)
+BUILD_SUBPROJECTS_ = .build-subprojects
+# environment
+XDG_SEAT = seat0
+# environment
+SSH_AGENT_PID = 23642
+# environment
+PKG_CONFIG_PATH = /usr/local/opam/default/lib/pkgconfig
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = GNOME-Classic:GNOME
+# environment
+MANPATH = /usr/share/man:/usr/local/share/man:/usr/local/opam/default/man:/opt/puppetlabs/puppet/share/man
+# environment
+HOME = /home/master22/ems22/c.grenier
+# environment
+LSTC_LICENSE = network
+# makefile (from `nbproject/Makefile-variables.mk', line 11)
+CND_ARTIFACT_DIR_RealTarget = dist/RealTarget/GNU-Linux
+# environment
+VSCODE_CLI = 1
+# environment
+MODULESHOME = /usr/share/Modules
+# environment
+LOGNAME = c.grenier
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# makefile (from `Makefile', line 51)
+XENOVERSION := 
+# automatic
++F = $(notdir $+)
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+MAKE_VERSION := 3.82
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from `Makefile', line 48)
+MKDIR = mkdir
+# environment
+HOSTNAME = pcb07-061-04
+# environment
+XDG_VTNR = 1
+# makefile (from `nbproject/Makefile-variables.mk', line 15)
+CND_PACKAGE_NAME_RealTarget = reactionwheel.tar
+# environment
+MAKELEVEL := 0
+# makefile (from `nbproject/Makefile-variables.mk', line 10)
+CND_PLATFORM_RealTarget = GNU-Linux
+# environment
+VERBOSE_LOGGING = true
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+QT_IM_MODULE = ibus
+# environment
+SHLVL = 4
+# environment
+GNOME_SHELL_SESSION_MODE = classic
+# environment
+XDG_SESSION_ID = 192
+# environment
+AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+USER = c.grenier
+# makefile (from `nbproject/Makefile-variables.mk', line 22)
+CND_PACKAGE_DIR_VirtualTarget = dist/VirtualTarget/GNU-Linux/package
+# environment
+CAML_LD_LIBRARY_PATH = /usr/local/opam/default/lib/stublibs:/usr/local/opam/default/lib/ocaml/stublibs:/usr/local/opam/default/lib/ocaml
+# makefile
+.DEFAULT_GOAL := build
+# environment
+XDG_CURRENT_DESKTOP = GNOME-Classic:GNOME
+# environment
+PIPE_LOGGING = true
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+define BASH_FUNC_module()
+() {  eval `/usr/bin/modulecmd bash $*`
+}
+endef
+# environment
+WINDOWPATH = 1
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# environment
+IMSETTINGS_MODULE = none
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /run/user/234173/vscode-1c31fb4e-1.52.1-main.sock
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MAIL = /var/spool/mail/c.grenier
+# environment
+LOADEDMODULES = ptII/r11-devel:opam/2021-2022:matlab/2021a:ansys/20.1:HPP/HPP:ls-dyna/r10.1.0:lsprepost/4.6:TLAToolbox/1.7.1:sarsop:git/2.31.1:vscode_ext:netbeans/8.2
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from `nbproject/Makefile-variables.mk', line 14)
+CND_PACKAGE_DIR_RealTarget = dist/RealTarget/GNU-Linux/package
+# environment
+OPAMSOFTS_HOME = /usr/local/opam
+# environment
+LC_PAPER = fr_FR
+# environment
+NO_AT_BRIDGE = 1
+# environment
+FF_HOME = /usr/local/FF-v2.3
+# makefile (from `nbproject/Makefile-variables.mk', line 7)
+CND_BUILDDIR = build
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+_LMFILES_ = /etc/modulefiles/ptII/r11-devel:/etc/modulefiles/opam/2021-2022:/etc/modulefiles/matlab/2021a:/etc/modulefiles/ansys/20.1:/etc/modulefiles/HPP/HPP:/etc/modulefiles/ls-dyna/r10.1.0:/etc/modulefiles/lsprepost/4.6:/etc/modulefiles/TLAToolbox/1.7.1:/etc/modulefiles/sarsop:/etc/modulefiles/git/2.31.1:/etc/modulefiles/vscode_ext:/etc/modulefiles/netbeans/8.2
+# environment
+PTII = /usr/local/ptII
+ 
+# environment
+https_proxy = http://proxy.isae.fr:3128
+# makefile (from `nbproject/Makefile-variables.mk', line 21)
+CND_ARTIFACT_PATH_VirtualTarget = dist/VirtualTarget/GNU-Linux/reactionwheel
+# makefile (from `nbproject/Makefile-impl.mk', line 27)
+PROJECTNAME = ReactionWheel
+# environment
+OPAMROOT = /usr/local/opam
+# environment
+LC_ALL = C
+# environment
+DBUS_STARTER_BUS_TYPE = session
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/1af54701_e6db_4da6_8541_322715037d0b
+# automatic
+^F = $(notdir $^)
+# environment
+GNOME_TERMINAL_SERVICE = :1.126
+# default
+SUFFIXES := 
+# environment
+HISTSIZE = 1000
+# makefile (from `nbproject/Makefile-variables.mk', line 13)
+CND_ARTIFACT_PATH_RealTarget = dist/RealTarget/GNU-Linux/reactionwheel
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=77185a89-56aa-4d39-99cb-1d53aef017d8&iid=77185a89-56aa-4d39-99cb-1d53aef017d8&sid=77185a89-56aa-4d39-99cb-1d53aef017d8","uploadToServer":true}
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# makefile (from `nbproject/Makefile-impl.mk', line 17)
+SUBPROJECTS = ${SUB_${SUB}}
+# default
+.RECIPEPREFIX := 
+# environment
+http_proxy = http://proxy.isae.fr:3128
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_PID = 25325
+# environment
+DBUS_STARTER_ADDRESS = unix:abstract=/tmp/dbus-id72Q8obTY,guid=ed11c23d24fe9ae89227eb7561d6a6da
+# variable set hash-table stats:
+# Load=156/1024=15%, Rehash=0, Collisions=30/198=15%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 49, inode 6489853983): 18 files, no impossibilities.
+
+# 18 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+nbproject/Makefile-variables.mk:
+#  Implicit rule search has been done.
+#  Last modified 2021-01-25 09:54:46
+#  File has been updated.
+#  Successfully updated.
+
+.build-tests-post: .build-tests-impl
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.test-pre: build-tests
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.clean-pre:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: .all-post
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+
+.PHONY:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.build-impl: .build-pre .validate-impl .depcheck-impl
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `nbproject/Makefile-impl.mk', line 39):
+	@#echo "=> Running $@... Configuration=$(CONF)"
+	"${MAKE}" -f nbproject/Makefile-${CONF}.mk QMAKE=${QMAKE} SUBPROJECTS=${SUBPROJECTS} .build-conf
+
+build-tests: .build-tests-post
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.all-pre:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+.build-post: .build-impl
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2021-09-29 11:33:36
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+ROOT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+# makefile (from `nbproject/Makefile-variables.mk', line 29)
+# sh = test -f nbproject/private/Makefile-variables.mk || (mkdir -p nbproject/private && touch nbproject/private/Makefile-variables.mk)
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/1=0%
+
+.depcheck-impl:
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := .depcheck-impl
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+#  recipe to execute (from `nbproject/Makefile-impl.mk', line 77):
+	@echo "# This code depends on make tool being used" >.dep.inc
+	@if [ -n "${MAKE_VERSION}" ]; then \
+	    echo "DEPFILES=\$$(wildcard \$$(addsuffix .d, \$${OBJECTFILES} \$${TESTOBJECTFILES}))" >>.dep.inc; \
+	    echo "ifneq (\$${DEPFILES},)" >>.dep.inc; \
+	    echo "include \$${DEPFILES}" >>.dep.inc; \
+	    echo "endif" >>.dep.inc; \
+	else \
+	    echo ".KEEP_STATE:" >>.dep.inc; \
+	    echo ".KEEP_STATE_FILE:.make.state.\$${CONF}" >>.dep.inc; \
+	fi
+
+test: .test-post
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.clobber-impl: .clobber-pre .depcheck-impl
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `nbproject/Makefile-impl.mk', line 51):
+	@#echo "=> Running $@..."
+	for CONF in ${ALLCONFS}; \
+	do \
+	    "${MAKE}" -f nbproject/Makefile-$${CONF}.mk QMAKE=${QMAKE} SUBPROJECTS=${SUBPROJECTS} .clean-conf; \
+	done
+
+build: .build-post
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clobber: .clobber-post
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.build-tests-pre:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.clobber-post: .clobber-impl
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+help: .help-post
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+nbproject/private/Makefile-variables.mk:
+#  Implicit rule search has been done.
+#  Last modified 2022-01-06 09:27:05.98690578
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+nbproject/Makefile-impl.mk:
+#  Implicit rule search has been done.
+#  Last modified 2021-01-25 09:54:46
+#  File has been updated.
+#  Successfully updated.
+
+.help-impl: .help-pre
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `nbproject/Makefile-impl.mk', line 106):
+	@echo "This makefile supports the following configurations:"
+	@echo "    ${ALLCONFS}"
+	@echo ""
+	@echo "and the following targets:"
+	@echo "    build  (default target)"
+	@echo "    clean"
+	@echo "    clobber"
+	@echo "    all"
+	@echo "    help"
+	@echo ""
+	@echo "Makefile Usage:"
+	@echo "    make [CONF=<CONFIGURATION>] [SUB=no] build"
+	@echo "    make [CONF=<CONFIGURATION>] [SUB=no] clean"
+	@echo "    make [SUB=no] clobber"
+	@echo "    make [SUB=no] all"
+	@echo "    make help"
+	@echo ""
+	@echo "Target 'build' will build a specific configuration and, unless 'SUB=no',"
+	@echo "    also build subprojects."
+	@echo "Target 'clean' will clean a specific configuration and, unless 'SUB=no',"
+	@echo "    also clean subprojects."
+	@echo "Target 'clobber' will remove all built files from all configurations and,"
+	@echo "    unless 'SUB=no', also from subprojects."
+	@echo "Target 'all' will will build all configurations and, unless 'SUB=no',"
+	@echo "    also build subprojects."
+	@echo "Target 'help' prints this message."
+	@echo ""
+
+.build-pre:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ 
+.test-impl: .build-tests-impl .test-pre
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `nbproject/Makefile-impl.mk', line 72):
+	@#echo "=> Running $@... Configuration=$(CONF)"
+	"${MAKE}" -f nbproject/Makefile-${CONF}.mk SUBPROJECTS=${SUBPROJECTS} .test-conf
+
+.clean-impl: .clean-pre .validate-impl .depcheck-impl
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `nbproject/Makefile-impl.mk', line 45):
+	@#echo "=> Running $@... Configuration=$(CONF)"
+	"${MAKE}" -f nbproject/Makefile-${CONF}.mk QMAKE=${QMAKE} SUBPROJECTS=${SUBPROJECTS} .clean-conf
+
+.help-post: .help-impl
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean: .clean-post
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.test-post: .test-impl
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.clean-post: .clean-impl
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.clobber-pre:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.validate-impl:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `nbproject/Makefile-impl.mk', line 90):
+	@if [ ! -f nbproject/Makefile-${CONF}.mk ]; \
+	then \
+	    echo ""; \
+	    echo "Error: can not find the makefile for configuration '${CONF}' in project ${PROJECTNAME}"; \
+	    echo "See 'make help' for details."; \
+	    echo "Current directory: " `pwd`; \
+	    echo ""; \
+	fi
+	@if [ ! -f nbproject/Makefile-${CONF}.mk ]; \
+	then \
+	    exit 1; \
+	fi
+
+.all-impl: .all-pre .depcheck-impl
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+#  recipe to execute (from `nbproject/Makefile-impl.mk', line 59):
+	@#echo "=> Running $@..."
+	for CONF in ${ALLCONFS}; \
+	do \
+	    "${MAKE}" -f nbproject/Makefile-$${CONF}.mk QMAKE=${QMAKE} SUBPROJECTS=${SUBPROJECTS} .build-conf; \
+	done
+
+.all-post: .all-impl
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+
+.build-tests-impl: .build-impl .build-tests-pre
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from `nbproject/Makefile-impl.mk', line 67):
+	@#echo "=> Running $@... Configuration=$(CONF)"
+	"${MAKE}" -f nbproject/Makefile-${CONF}.mk SUBPROJECTS=${SUBPROJECTS} .build-tests-conf
+
+.help-pre:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=38/1024=4%, Rehash=0, Collisions=0/100=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 0 / lookups = 128 / hits = 128
+# # of strcache buffers: 1 (* 8176 B/buffer = 8176 B)
+# strcache used: total = 0 (669) / max = 0 / min = 8176 / avg = 0
+# strcache free: total = 0 (7507) / max = 0 / min = 8176 / avg = 0
+
+# strcache hash-table stats:
+# Load=57/8192=1%, Rehash=0, Collisions=1/128=1%
+# Finished Make data base on Thu Jan  6 09:27:06 2022
+
+ 

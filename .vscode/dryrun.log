@@ -1,0 +1,72 @@
+make --dry-run --always-make --keep-going --print-directory
+make: xeno-config: Command not found
+make: Entering directory `/home/master22/ems22/c.grenier/Downloads/StudentPackage/ReactionWheel'
+make[1]: xeno-config: Command not found
+make[1]: Entering directory `/home/master22/ems22/c.grenier/Downloads/StudentPackage/ReactionWheel'
+make[2]: xeno-config: Command not found
+make[2]: Entering directory `/home/master22/ems22/c.grenier/Downloads/StudentPackage/ReactionWheel'
+ 
+if [ ! -f nbproject/Makefile-RealTarget.mk ]; \
+then \
+    echo ""; \
+    echo "Error: can not find the makefile for configuration 'RealTarget' in project ReactionWheel"; \
+    echo "See 'make help' for details."; \
+    echo "Current directory: " `pwd`; \
+    echo ""; \
+fi
+if [ ! -f nbproject/Makefile-RealTarget.mk ]; \
+then \
+    exit 1; \
+fi
+echo "# This code depends on make tool being used" >.dep.inc
+if [ -n "3.82" ]; then \
+    echo "DEPFILES=\$(wildcard \$(addsuffix .d, \${OBJECTFILES} \${TESTOBJECTFILES}))" >>.dep.inc; \
+    echo "ifneq (\${DEPFILES},)" >>.dep.inc; \
+    echo "include \${DEPFILES}" >>.dep.inc; \
+    echo "endif" >>.dep.inc; \
+else \
+    echo ".KEEP_STATE:" >>.dep.inc; \
+    echo ".KEEP_STATE_FILE:.make.state.\${CONF}" >>.dep.inc; \
+fi
+#echo "=> Running .build-impl... Configuration=RealTarget"
+"make" -f nbproject/Makefile-RealTarget.mk QMAKE= SUBPROJECTS= .build-conf
+"make"  -f nbproject/Makefile-RealTarget.mk dist/RealTarget/GNU-Linux/reactionwheel
+mkdir -p build/RealTarget/GNU-Linux
+rm -f "build/RealTarget/GNU-Linux/SetpointLib.o.d"
+gcc    -c -Ireal -I. -MMD -MP -MF "build/RealTarget/GNU-Linux/SetpointLib.o.d" -o build/RealTarget/GNU-Linux/SetpointLib.o SetpointLib.c
+mkdir -p build/RealTarget/GNU-Linux
+rm -f "build/RealTarget/GNU-Linux/SocketLib.o.d"
+gcc    -c -Ireal -I. -MMD -MP -MF "build/RealTarget/GNU-Linux/SocketLib.o.d" -o build/RealTarget/GNU-Linux/SocketLib.o SocketLib.c
+mkdir -p build/RealTarget/GNU-Linux
+rm -f "build/RealTarget/GNU-Linux/WheelHMI.o.d"
+gcc    -c -Ireal -I. -MMD -MP -MF "build/RealTarget/GNU-Linux/WheelHMI.o.d" -o build/RealTarget/GNU-Linux/WheelHMI.o WheelHMI.c
+mkdir -p build/RealTarget/GNU-Linux
+rm -f "build/RealTarget/GNU-Linux/WheelLaws.o.d"
+gcc    -c -Ireal -I. -MMD -MP -MF "build/RealTarget/GNU-Linux/WheelLaws.o.d" -o build/RealTarget/GNU-Linux/WheelLaws.o WheelLaws.c
+mkdir -p build/RealTarget/GNU-Linux
+rm -f "build/RealTarget/GNU-Linux/WheelTasks.o.d"
+gcc    -c -Ireal -I. -MMD -MP -MF "build/RealTarget/GNU-Linux/WheelTasks.o.d" -o build/RealTarget/GNU-Linux/WheelTasks.o WheelTasks.c
+mkdir -p build/RealTarget/GNU-Linux/real
+rm -f "build/RealTarget/GNU-Linux/real/ADS1115.o.d"
+gcc    -c -Ireal -I. -MMD -MP -MF "build/RealTarget/GNU-Linux/real/ADS1115.o.d" -o build/RealTarget/GNU-Linux/real/ADS1115.o real/ADS1115.c
+mkdir -p build/RealTarget/GNU-Linux/real
+rm -f "build/RealTarget/GNU-Linux/real/BB_EQEP.o.d"
+gcc    -c -Ireal -I. -MMD -MP -MF "build/RealTarget/GNU-Linux/real/BB_EQEP.o.d" -o build/RealTarget/GNU-Linux/real/BB_EQEP.o real/BB_EQEP.c
+mkdir -p build/RealTarget/GNU-Linux/real
+rm -f "build/RealTarget/GNU-Linux/real/BB_I2C.o.d"
+gcc    -c -Ireal -I. -MMD -MP -MF "build/RealTarget/GNU-Linux/real/BB_I2C.o.d" -o build/RealTarget/GNU-Linux/real/BB_I2C.o real/BB_I2C.c
+mkdir -p build/RealTarget/GNU-Linux/real
+rm -f "build/RealTarget/GNU-Linux/real/BB_PWM.o.d"
+gcc    -c -Ireal -I. -MMD -MP -MF "build/RealTarget/GNU-Linux/real/BB_PWM.o.d" -o build/RealTarget/GNU-Linux/real/BB_PWM.o real/BB_PWM.c
+mkdir -p build/RealTarget/GNU-Linux/real
+rm -f "build/RealTarget/GNU-Linux/real/HardwareLib.o.d"
+gcc    -c -Ireal -I. -MMD -MP -MF "build/RealTarget/GNU-Linux/real/HardwareLib.o.d" -o build/RealTarget/GNU-Linux/real/HardwareLib.o real/HardwareLib.c
+mkdir -p build/RealTarget/GNU-Linux/real
+rm -f "build/RealTarget/GNU-Linux/real/MPU9250.o.d"
+gcc    -c -Ireal -I. -MMD -MP -MF "build/RealTarget/GNU-Linux/real/MPU9250.o.d" -o build/RealTarget/GNU-Linux/real/MPU9250.o real/MPU9250.c
+mkdir -p dist/RealTarget/GNU-Linux
+gcc -o dist/RealTarget/GNU-Linux/reactionwheel build/RealTarget/GNU-Linux/SetpointLib.o build/RealTarget/GNU-Linux/SocketLib.o build/RealTarget/GNU-Linux/WheelHMI.o build/RealTarget/GNU-Linux/WheelLaws.o build/RealTarget/GNU-Linux/WheelTasks.o build/RealTarget/GNU-Linux/real/ADS1115.o build/RealTarget/GNU-Linux/real/BB_EQEP.o build/RealTarget/GNU-Linux/real/BB_I2C.o build/RealTarget/GNU-Linux/real/BB_PWM.o build/RealTarget/GNU-Linux/real/HardwareLib.o build/RealTarget/GNU-Linux/real/MPU9250.o -lm -lpthread -lnative -lxenomai 
+make[2]: Leaving directory `/home/master22/ems22/c.grenier/Downloads/StudentPackage/ReactionWheel'
+make[1]: Leaving directory `/home/master22/ems22/c.grenier/Downloads/StudentPackage/ReactionWheel'
+make: Leaving directory `/home/master22/ems22/c.grenier/Downloads/StudentPackage/ReactionWheel'
+ 
