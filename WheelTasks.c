@@ -8,7 +8,6 @@
 // ***********************************************************
 
 #include "ReactionWheel.h"
-#include
 
 //--------------------------------------------
 // Global  declarations                      
@@ -26,7 +25,6 @@
 #define LP_FLAG 1
 #define I_FLAG 2
 #define F_FLAG 3
-
 
 //--------------------------------------------
 // Tasks descriptors                          
@@ -48,9 +46,7 @@ RT_TASK Timer1ms_TaskDescriptor;
 
 RT_SEM StartExperiment_Semaphore;
 RT_SEM ExitApplication_Semaphore;
-
-// Ajouté par Xavier & Florian
-RT_SEM Timer1ms_Semaphore;
+RT_SEM Timer1ms_Semaphore; // Ajouté par Xavier & Florian
 
 //--------------------------------------------
 //  Events identifiers
@@ -71,22 +67,19 @@ RT_SEM Timer1ms_Semaphore;
 //--------------------------------------------
 // Message queues Identifiers                 
 //--------------------------------------------
-// Ajouté par Xavier & Florian
-RT_QUEUE  queue_TimeManagement;                
+RT_QUEUE  SensorsMeasurement_Queue;
 
+RT_QUEUE  TimeManagement_Queue;    // Ajouté par Xavier & Florian           
 
 // Global variables communication and synchronization tasks by shared memory 
 //--------------------------------------------------------------------------
-// bool myFlag
-//**** This space must be completed if needed *****  
-static bool Finished_Flag;
+static bool AbortExperiment_Flag;
+static bool Finished_Flag; // Ajouté par Xavier & Florian
 
-bool ConnectionIsFinished(void)
-{
-    return(Finished_Flag);
-}
+bool ExperimentIsAborted(void) { return AbortExperiment_Flag; }
+bool ConnectionIsFinished(void) { return(Finished_Flag); } // Ajouté par Xavier & Florian
 
-
+// les lignes suivantes ont été supprimées par Celestin & Jordan - TODO: A confirmer que c'est bien une erreur ?
 // declared in WheelHMI.c 
 extern ExperimentParametersType ExperimentParameters;
 
@@ -115,35 +108,35 @@ void TimeManagement_Task()
     Finished_Flag = false;
 
     while(true) { 
-		
-	
+
+
         rt_sem_p(&StartExperiment_Semaphore, TM_INFINITE);
 
         int t=0; 
         //Push I to queue
-		rt_queue_write(&queue_TimeManagement, &I_flag, sizeof(char), Q_NORMAL);
+		rt_queue_write(&TimeManagement_Queue, &I_flag, sizeof(char), Q_NORMAL);
 
         while(ConnectionIsActive() && t < ExperimentParameters.duration && !ExperimentIsAborted()) {
 			// Attente du semaphore du timer 1ms
 			rt_sem_p(&Timer1ms_Semaphore, 2000000); //timeout = 2ms
-			
+
             t++;
-			
+
             if (t % ExperimentParameters.lawPeriod == 0){ 
                 //Push LP to queue
-				rt_queue_write(&queue_TimeManagement, &LP_flag, sizeof(char), Q_NORMAL);
+				rt_queue_write(&TimeManagement_Queue, &LP_flag, sizeof(char), Q_NORMAL);
             } 
 
             if (t % ExperimentParameters.acquisitionPeriod == 0){ 
                 //Push AP to queue 
-				rt_queue_write(&queue_TimeManagement, &AP_flag, sizeof(char), Q_NORMAL);
+				rt_queue_write(&TimeManagement_Queue, &AP_flag, sizeof(char), Q_NORMAL);
             } 
 
         } 
-		
+
         Finished_Flag = true;
         // Push F to queue 
-		rt_queue_write(&queue_TimeManagement, &F_flag, sizeof(char), Q_NORMAL);
+		rt_queue_write(&TimeManagement_Queue, &F_flag, sizeof(char), Q_NORMAL);
     } 
 }
 
@@ -154,15 +147,13 @@ void Timer1ms_Task(){
 // Ajouté par Xavier & Florian
 void LawFunction_Task()
 {
-
-
+    // TODO
 }
 
 // Ajouté par Xavier & Florian
 void CurvesAcquisition_Task()
 {
-
-
+    // TODO
 }
 
 
@@ -174,13 +165,14 @@ void CurvesAcquisition_Task()
  */
 void AbortExperiment(void)
 {
-   
+    AbortExperiment_Flag = true;
 }
 //-----------------------------------------------------------
 
 void StartExperiment(void)
 {
-   
+    AbortExperiment_Flag = False;  // Ajouté par Florian pour initialisation
+    rt_sem_v(&StartExperiment_Semaphore);
 }
 //----------------------------------------------------------
 
@@ -188,19 +180,19 @@ void ReturnSensorsMeasurement()
 {
     float samplesBlock[50 * 4];
     char terminationChar;
-    int i;
-    
-    for(i = 0; i < 10; i++) {
-        samplesBlock[(i * 4)]     = 0.1;
-        samplesBlock[(i * 4) + 1] = 0.2;
-        samplesBlock[(i * 4) + 2] = 0.3;
-        samplesBlock[(i * 4) + 3] = 0.4;
-    }
-   
-    terminationChar = 'S';  // terminationChar = 'F' if the experiment is finished
+    int i = 0;
 
-    WriteRealArray(terminationChar, samplesBlock, 10 * 4);
+    // read from the queue
+    // write into samplesBlock at the right position
+    // increment i (for next iteration's position)
+    // don't wait for message
+    // if no messages, read returns EWOULDBLOCK, so the loop stops
+    while(rt_queue_read(&SensorsMeasurement_Queue, samplesBlock + (i*4), 4*sizeof(float), TM_NONBLOCK) != EWOULDBLOCK)
+        i++;
 
+    terminationChar = ExperimentIsFinished() ? 'S' : 'F';
+
+    WriteRealArray(terminationChar, samplesBlock, i * 4);
 }
 
 //--------------------------------------------------------------------
@@ -239,33 +231,31 @@ int main(int argc, char* argv[])
     // Events creation               
     // rt_event_create(xxxx);
     // *** This space must be completed if needed ******
-    
+
     // Message queues creation               
     // ------------------------------------- 
-    // *** This space must be completed  if needed   ******
-
-    rt_queue_create(&queue_TimeManagement, "Queue TimeManagement", TIME_MANAGEMENT_QUEUE_BUFFER_SIZE * sizeof(char), TIME_MANAGEMENT_QUEUE_BUFFER_SIZE, Q_FIFO);
+    // TODO: decide on BUFFER_SIZE (like 50 or whever - see ReturnSenorsMeasurment)
+    rt_queue_create(&SensorsMeasurement_Queue, "SensorsMeasurement_Queue", 50 * 4*sizeof(float), 50, Q_FIFO);
+    rt_queue_create(&TimeManagement_Queue, "Queue TimeManagement", TIME_MANAGEMENT_QUEUE_BUFFER_SIZE * sizeof(char), TIME_MANAGEMENT_QUEUE_BUFFER_SIZE, Q_FIFO);  // Ajouté par Florian & Xavier
 
     // Semaphores creation                 
     // ------------------------------------
     rt_sem_create(&ExitApplication_Semaphore, "Exit", 0, S_FIFO);
-
-	// Ajouté par Florian & Xavier
-    rt_sem_create(&Timer1ms_Semaphore);
+    rt_sem_create(&StartExperiment_Semaphore, "StartExperiment", 0, S_PULSE);
+    rt_sem_create(&Timer1ms_Semaphore); // Ajouté par Florian & Xavier
     // **** This space must be completed  if needed   ***** 
-    
+
 
     // Mutual exclusion semaphore creation                     
     //---------------------------------------------------------
-    // rt_mutex_create(&myMutex, "mx" );                       
+    // rt_mutex_create(&myMutex, "mx" );                       
     //    **** This space must be completed  if needed   ***** 
 
     // Tasks creation                                          
     //---------------------------------------------------------
     //   **** This space must be completed  if needed   ***** 
-    
-    rt_task_create(&HumanMachineInterface_TaskDescriptor, "ManageRequestTask", DEFAULTSTACKSIZE, HUMAN_MACHINE_INTERFACE_PRIORITY, 0);
 
+    rt_task_create(&HumanMachineInterface_TaskDescriptor, "ManageRequestTask", DEFAULTSTACKSIZE, HUMAN_MACHINE_INTERFACE_PRIORITY, 0);
 
     // Ajouté par Florian & Xavier,
 	// TODO: mode=0 à modifier et à faire valider
@@ -274,7 +264,6 @@ int main(int argc, char* argv[])
     rt_task_create(&LawFunction_TaskDescriptor, "LawFunction", DEFAULTSTACKSIZE, LAW_FUNCTION_PRIORITY, 0);
     rt_task_create(&Timer1ms_TaskDescriptor, "Timer1ms", DEFAULTSTACKSIZE, LAW_FUNCTION_PRIORITY, 0);
 
-	
     // Tasks starting
     rt_task_start(&HumanMachineInterface_TaskDescriptor, &HumanMachineInterface_Task, NULL);
 
@@ -303,7 +292,6 @@ int main(int argc, char* argv[])
     rt_task_delete(&TimeManagement_TaskDescriptor);
     rt_task_delete(&CurvesAcquisition_TaskDescriptor);
     rt_task_delete(&LawFunction_TaskDescriptor);
-    
 
     //------------------------------------------------------------
     // Semaphores destruction                                     
@@ -312,9 +300,8 @@ int main(int argc, char* argv[])
     //   **** This space must be completed  if needed   ***** 
 
     rt_sem_delete(&ExitApplication_Semaphore);
-	
-	// Ajouté par Florian & Xavier
-    rt_sem_delete(&Timer1ms_Semaphore);
+    rt_sem_delete(&StartExperiment_Semaphore);
+    rt_sem_delete(&Timer1ms_Semaphore); // Ajouté par Florian & Xavier
 
     //------------------------------------------------------------
     // Events destruction                                 
@@ -326,11 +313,9 @@ int main(int argc, char* argv[])
     //------------------------------------------------------------
     // Message queues destruction                                 
     //------------------------------------------------------------
-    // rt_queue_delete(&myQueue);                                 
-    // **** This space must be completed  if needed   *****
-	
-	// Ajouté par Florian & Xavier
-    rt_queue_delete(&queue_TimeManagement);
+    rt_queue_delete(&SensorsMeasurement_Queue);
+    rt_queue_delete(&TimeManagement_Queue); // Ajouté par Florian & Xavier
+
 
     rt_printf(" Application ..... finished--> exit\r\n");
     // Peripherals uninitialization 
