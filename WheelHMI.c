@@ -92,6 +92,7 @@ void ManageRequest(void)
             
             WaitForMessage(); // Blocking call
             request  = ReturnRequest();
+            rt_printf("%c", request); // Added by team
             datatype = ReturnDataType();
             switch(request) {
             case 'L': // Set command laws parameters
@@ -132,7 +133,7 @@ void ManageRequest(void)
             case 'E': // Old Calibration (to be removed)
                 WriteResponse('A');
                 break;
-            default: // Unkown request : do nothing
+            default: // Unknown request : do nothing
                 break;
             }            
         }
