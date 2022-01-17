@@ -150,27 +150,44 @@ void TimeManagement_Task()
 void LawFunction()
 {
     rt_printf("Law Function function\r\n");
+    
+    SampleType Ploudleretour;
+    SampleAcquisition(&Ploudleretour);
+    rt_printf("motorSpeed : %f / platformSpeed : %f /  platformPosition : %f / motorCurrent : %f\r\n",Ploudleretour.motorSpeed, Ploudleretour.platformSpeed, Ploudleretour.platformPosition, Ploudleretour.motorCurrent );
+    
+    float WheelCommand = ComputeLaw(Ploudleretour); 
+    rt_printf("WheelCommand : %f\r\n", WheelCommand);
+    ApplySetpointCurrent(WheelCommand);
+    
         
 }
 
 // Ajouté par Xavier & Florian
 void CurvesAcquisition()
 {
-    rt_printf("Curves Acquisition function\r\n");
+    //rt_printf("Curves Acquisition function\r\n");
+    float SensorsValues[4];
+    SensorAcquisition(&SensorsValues);
+    //rt_printf("ploud 0 :%f\r\n ploud 1 :%f\r\n ploud 2 :%f\r\n ploud 3 :%f\r\n ", ploud[0],ploud[1],ploud[2],ploud[3]);
+    rt_queue_write(&SensorsMeasurement_Queue, &SensorsValues, 4*sizeof(float), Q_NORMAL);
+    
     
 }
 
 // Ajouté par Xavier & Florian
 void Finishing()
 {
-    rt_printf("Finishing function\r\n");
-    
+    //rt_printf("Finishing function\r\n");
+    ApplySetpointCurrent(0);
 }
 
 
 // Ajouté par Xavier & Florian
 void Initializing()
 {
+    SampleType Ploudleretour;
+    SampleAcquisition(&Ploudleretour);
+    InitializeExperiment(Ploudleretour);
     rt_printf("Initializing function\r\n");
     
 }
@@ -184,7 +201,7 @@ void AcquireAndLaw_Task()
     
     while (1){
         rt_queue_read(&TimeManagement_Queue, &MsgBlock, sizeof(char), TM_INFINITE);  
-        rt_printf("Flag %d\n\r", MsgBlock);
+        //rt_printf("Flag %d\n\r", MsgBlock);
 
         switch(MsgBlock){
             case AP_FLAG: 
