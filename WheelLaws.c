@@ -20,6 +20,7 @@ float   Ki, Kp, Kv;             // Law coefficients
 float   A, B, C, D, E;
 int     LawParameter;
 float   PeriodLaw;
+float error_before, current_before, int_before, error_before2, current_before2;
 
 // Global variables
 // declared in WheelHMI.c 
@@ -46,6 +47,13 @@ void InitializeLaw(void)
     U_n1 = 0;
     U_n2 = 0;
     Y_n2 = 0;
+    
+    error_before=0;
+    current_before=0;
+    int_before=0;
+    error_before2=0;
+    current_before2=0;
+    
     LawParameter = ExperimentParameters.law;
     PeriodLaw = (float) ((ExperimentParameters.lawPeriod) / 1000.0);
     switch(LawParameter) {
@@ -102,6 +110,7 @@ float ComputeLaw(SampleType measure)
     speed    = measure.platformSpeed;
     position = measure.platformPosition;
 
+
     currentSetpoint = ComputeNewSetpoint();
 
     error    = currentSetpoint - position;
@@ -131,17 +140,61 @@ float ComputeLaw(SampleType measure)
 
         break;
     case 20:   // lead compensator loop
-       
+        A = 3.242;
+        B = -3.019;
+        C = -0.6557;
+        
+        wheelCommand =  A*error + B*error_before - C*current_before;
+        current_before = wheelCommand;
+        error_before = error;
+        
         break;
     case 21:   // lead  lag compensator loop
         
+        A = 3.265;
+        B = -6.213;
+        C = 2.954;
+        D = -1.641;
+        E = 0.6463;
+        
+        wheelCommand = A*error + B*error_before + C*error_before2 - D*current_before - E*current_before2;
+        current_before2 = current_before;
+        error_before2 = error_before;
+        current_before = wheelCommand;
+        error_before = error;        
+        
         break;
     case 50:   // state feedback
+        Kp = 3.7616;
+        Kv = 1.9724;
+        
+        wheelCommand = Kp * (error)- Kv*speed;
         
         break;
 
     case 51:   // state feedback with integrator
        
+        Ki = 18.8082; // integral gain
+        Kp = 13.6236;
+        Kv = 4.6107;
+        float threshold = 0.1745;       //10° in radians
+        
+        float Te = ExperimentParameters.lawPeriod/1000.0;     // ms to s
+        float integrator = Te/2 * (error+error_before) + int_before;
+        
+        // If error is superior to threshold (10°), the integrator is disabled 
+        // to get an equivalent of state feedback without integrator but with 
+        // Kp and Kv from state feedback with integrator to insure coefficient 
+        // continuity
+        if (error > threshold || error < -threshold) {
+            integrator = currentSetpoint / Ki * Kp;
+        }
+        
+        wheelCommand = Ki*integrator - Kp*position - Kv*speed;
+        int_before = integrator;
+        error_before = error;
+        
+        
         break;
     }//  end of switch (lawParameter)
     return(wheelCommand);
