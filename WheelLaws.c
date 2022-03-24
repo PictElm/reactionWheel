@@ -179,12 +179,11 @@ float ComputeLaw(SampleType measure)
         Kv = 4.6107;
         float threshold = 0.1745;       //10° in radians
         
-        float Te = ExperimentParameters.lawPeriod/1000.0;     // ms to s
-        float integrator = Te/2 * (error+error_before) + int_before;
+        float integrator = PeriodLaw/2 * (error+error_before) + int_before;
         
         // If error is superior to threshold (10°), the integrator is disabled 
         // to get an equivalent of state feedback without integrator but with 
-        // Kp and Kv from state feedback with integrator to insure coefficient 
+        // Kp and Kv from state feedback with integrator to ensure coefficient 
         // continuity
         if (error > threshold || error < -threshold) {
             integrator = currentSetpoint / Ki * Kp;
@@ -193,7 +192,7 @@ float ComputeLaw(SampleType measure)
         wheelCommand = Ki*integrator - Kp*position - Kv*speed;
         int_before = integrator;
         error_before = error;
-        
+                
         
         break;
     }//  end of switch (lawParameter)
